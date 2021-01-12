@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Problem Solving Example</title>
+</head>
+<body>
+
+<script>
+
+	//1. Understand the Problem
+
+    //EX: Write a function which takes in a string and returns counts of each character in the string.
+
+	/*
+		restate: take a string, count the characters, return the count
+
+		inputs: string, (ask interviewer: is it a sentence? is it always going to be one work?)
+				could be a sentence, alphanumeric characters (decide what you want to label your input => str)
+
+		outputs: object with char as key and count as value, => call it charCount
+	*/
+
+
+
+    //2. Explore Concrete Examples
+
+	//EX: Write a function which takes in a string and returns counts of each alphanumeric character in the string.
+
+	/*
+		simple: countChars("aaaa") => {a : 4} //TYPE THIS OUT WHEN YOU ASK YOUR INTERVIEWER
+
+			ASK: What if it was like this countChars("aaaA") => {a : 3, A : 1}
+				They say no, I want all of them to be considered the same A and a
+					-So now you clean up code to represent this new info.
+			ASK: Would I ever have an empty string? countChars(" ")
+			ASK: Would I ever have a number? countChars("h3fd")
+
+		complex: countChars("hello hey!") => {h : 2, e : 2, l : 2, o : 1 ....etc}
+	*/
+
+
+
+	//3. Break it Down
+
+    //EX: Write a function which takes in a string and returns counts of each alphanumeric character in the string.
+
+    /*
+
+	*/
+
+	// function countChars(str) {
+	// 	//create a bucket
+	// 	//loop through string to get chars
+	// 	//check if char is alphanumeric
+	// 		//ASK: Do you want EVERY letter in the string OR EVERY letter in the alphabet
+	// 		//IF YOU DON'T KNOW HOW TO CHECK FOR ALPHANUMERIC HERE'S WHAT YOU SAY:
+	// 			//I know how to loop through the string but I'm
+	// 	//if it is add to object
+	// 	//return bucket object
+	// 	let bucket = {};
+	//
+	// 	for(let i = 0; str.length + 1; i++) {
+	// 		if(str[i] )
+	// 	}
+	//
+	//
+	// 	return bucket;
+	// }
+
+
+
+    //4. Solve || Simplify
+
+    //EX: Write a function which takes in a string and returns counts of each alphanumeric character in the string.
+	function countChars(str) {
+		//create a bucket
+		let charCount = {};
+
+		//loop through string to get chars
+		for (let char of str) {
+			//check if char is alphanumeric
+
+			//You can say: I don't know how to write the expression that checks for alphanumerics
+			//IF YOU DIDN'T KNOW, HERE'S WHAT THE INTERVIEW MIGHT SAY: How would you tell me if a character is alphanumeric?
+
+			//lowercase each char
+			char = char.toLowerCase();
+			if(/[a-z0-9]/.test(char)) {  //.test is a method for Regular Expressions
+				//if it is add to object
+				if(!charCount[char]) {
+					charCount[char] = 1;
+				} else {
+					charCount[char]++;
+				}
+			}
+		}
+
+		//return bucket object
+		return charCount;
+
+		//Talk out loud during interview
+			//Use "Let's" and "We"
+	}
+
+	console.log(countChars("hello!"));
+
+	//SOMETIMES THE INTERVIEW WILL GIVE YOU INPUTS TO TRY OUT
+
+	//5. Look Back and Refactor
+	function countCharsPrettier(str) {
+		let charCounts = {};
+		for(let char of str) {
+			if(isAlphaNumeric(char)) {
+				char = char.toLowerCase();
+				charCounts[char] = ++charCounts[char] || 1;
+			}
+		}
+		return charCounts;
+	}
+
+
+	function isAlphaNumeric(char) {
+		let code = char.charCodeAt(0);
+		if(!(code > 47 && code < 58) &&
+		!(code > 64 && code < 91) &&
+		!(code > 96 && code < 123)) {
+			return false;
+
+		} else {
+
+		}
+	}
+
+
+    //EX: Write a function which takes in a string and returns counts of each alphanumeric character in the string.
+
+
+</script>
+</body>
+</html>
