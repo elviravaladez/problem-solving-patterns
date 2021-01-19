@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Big O Notation</title>
+</head>
+<body>
+
+<script>
+
+	//BIG O NOTATION: TIME COMPLEXITY
+
+    function addUpTo(n) {
+        return n * (n + 1) / 2;
+    }
+    //Time Complexity: O(1) constant
+	//Space Complexity: O(1) constant
+
+
+    function addUpTo2(n) {
+        let total = 0;
+        for (let i = 1; i <= n; i++) {
+            total += i;
+        }
+        return total;
+    }
+    //Time Complexity: O(n) Linear
+		//Every time you see a loop, you'll know now that it's O(n)
+		//A loop is always linear
+	//Space Complexity: O(1) constant
+
+
+
+    function countUpAndDown(n) {
+        console.log("Going up!");
+        for (let i = 0; i < n; i++) {
+            console.log(i);
+        }
+        console.log("At the top!\nGoing down...");
+        for (let j = n - 1; j >= 0; j--) {
+            console.log(j);
+        }
+        console.log("Back down. Bye!");
+    }
+	//Time Complexity: STILL O(n) Linear
+	//Space Complexity: 0(1) constant
+
+
+
+
+    function printAllPairs(n) {
+        for (let i = 0; i < n; i++) {
+            for (let j = 0; j < n; j++) {
+                console.log(i, j);
+            }
+        }
+    }
+	//Time Complexity: O(n) * O(n) => O(n^2) Quadratic
+	//Space Complexity: ()
+
+
+
+
+    //BIG O NOTATION: SPACE COMPLEXITY
+
+    //==================
+	//SPACE COMPLEXITY: Refers to
+	//==================
+	//Big O Notation in terms of space complexity is expressed just like it is with time complexity.  The difference here is that we are using it to express the amount of space needed to run our algorithm as the input (n) grows arbitrarily large.
+		//Most primitives (booleans, numbers, undefined, null) are Constant Space or O(1)
+		//Strings require O(n) space where n is the string’s length
+		//Reference types are generally O(n), where n is the length (for arrays) or the number of keys (for objects)
+
+	//Some rules of thumb:
+		//Most primitives (booleans, numbers, undefined, null) are Constant Space or O(1)
+		//Strings require O(n) space where n is the string’s length
+		// Reference types are generally O(n), where n is the length (for arrays) or the number of keys (for objects)
+
+
+
+	function sum(arr) {
+        let total = 0; //O(1) constant
+        for (let i = 0; i < arr.length; i++) {
+            total += arr[i];
+        }
+        return total;
+    }
+    //Space Complexity: O(1) constant
+	// Time Complexity: O(n) linear
+
+
+
+    function double(arr) {
+        let newArr = []; // O(n) linear
+        for (let i = 0; i < arr.length; i++) { //O(n) linear
+            newArr.push(2 * arr[i]); // O(n) linear
+        }
+        return newArr;
+    }
+
+    //Space Complexity: O(n) linear
+	//Time Complexity: O(n) linear
+
+
+
+
+
+</script>
+</body>
+</html>
