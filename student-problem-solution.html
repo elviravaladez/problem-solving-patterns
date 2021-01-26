@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Student Problem Solution</title>
+</head>
+<body>
+<script>
+    let studentArr = [
+        [58, "algebra"],
+        [58, "athletics"],
+        [63, "art"],
+        [88, "algebra"],
+        [72, "english"],
+        [77, "calculus"],
+        [69, "art"]
+    ];
+
+    function students(array) {
+        //initialize empty obj
+        let obj = {};
+        //look at each subarr of arr
+        for (let studentClass of array) {
+            //define var subject as the second element of each subarr
+            let subject = studentClass[1];
+            //define var student as the first element of each subarr
+            let student = studentClass[0];
+            if (!obj[subject]) {
+                obj[subject] = [];
+            }
+            obj[subject].push(student);
+        }
+        console.log(obj);
+    }
+
+    students(studentArr);
+</script>
+</body>
+</html>
