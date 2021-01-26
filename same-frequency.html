@@ -8,9 +8,60 @@
 <script>
 	//Write a function called sameFrequency.  Given two positive integers, find out if the two numbers have the same frequency of digits
 	//sameFrequency(182, 281) //true
-	//sameFrequency(34, 14) //true
+	//sameFrequency(34, 14) //false (b/c the first has a 3, BUT the second number DOES NOT have a 3)
 	//sameFrequency(3589578, 5879385) //true
-	//sameFrequency(22, 222) //false
+	//sameFrequency(22, 222) //false (b/c the number of 2s in the first # shows up two times, and the number 2 shows up three times)
+
+	//When you're referring to the frequency, are you referring to each number showing up in each of the numbers the same amount of times
+
+	//check lengths before proceeding
+	//convert nums to strings
+	//create two objs
+	//loop through numStrings
+	//Add to two objs(digit: frequency)
+	//loop through an obj and see if the key (digit) exists
+
+	//check its frequency
+	function sameFrequency(num1, num2) {
+		//convert nums to strings
+		let num1String = num1.toString();
+		let num2String = num2.toString();
+
+		//check lengths before proceeding
+		if(num1String.length !== num2String.length) {
+			return false;
+		}
+
+		//create two objs
+		let frequencyCounter1 = {};
+		let frequencyCounter2 = {};
+
+		for(let digit of num1String) {
+			if(!frequencyCounter1[digit]) {
+				frequencyCounter1[digit] = 1;
+			} else {
+				frequencyCounter1[digit]++;
+			}
+		}
+
+		for(let digit of num2String) {
+			if(!frequencyCounter2[digit]) {
+				frequencyCounter2[digit] = 1;
+			} else {
+				frequencyCounter2[digit]++;
+			}
+		}
+
+		for(let key in frequencyCounter1) { //{key(digit) : value(frequency)}
+			if(!(frequencyCounter1[key] !== frequencyCounter2[key])){ //bracket notation is looking at the value of the keys
+				return false;
+			}
+		}
+		return true;
+	}
+
+
+
 </script>
 
 </body>
