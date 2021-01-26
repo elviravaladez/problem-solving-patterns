@@ -26,9 +26,9 @@
             }
             arr2.splice(correctIndex,1)
         }
-        return true
+        return true;
     }
-    //Time Complexity:
+    //Time Complexity: Quadratic O(n)^2
 
 
 
@@ -43,30 +43,40 @@
 
         for(let val of arr1) {
             if (!frequencyCounter1[val]) {
-                frequencyCounter1[val] = 1;
+                frequencyCounter1[val] = 1; //b/c now there is only 1 of these values in the object
             } else {
-                frequencyCounter1[val]++;
+                frequencyCounter1[val]++;  //increasing the value of this value
             }
             // frequencyCounter1[val] = (frequencyCounter1[val] || 0) + 1
         }
         console.log(frequencyCounter1);
+
+
         for(let val of arr2) {
-            frequencyCounter2[val] = (frequencyCounter2[val] || 0) + 1
+        	if(!frequencyCounter2[val]) {
+        		frequencyCounter2[val] = 1;
+			} else {
+        		frequencyCounter2[val]++;
+			}
+            // frequencyCounter2[val] = (frequencyCounter2[val] || 0) + 1
         }
+
+
         console.log(frequencyCounter2);
         for (let key in frequencyCounter1){
             if(!(key ** 2 in frequencyCounter2)){
-                return false
+                return false;
             }
+
             if(frequencyCounter2[key ** 2] !== frequencyCounter1[key]){
-                return false
+                return false;
             }
         }
-        return true
+        return true;
     }
 
     console.log(same([1, 2, 3], [4, 1, 9]));
-    //Time Complexity
+    //Time Complexity: Linear O(n)
 
 </script>
 </body>
