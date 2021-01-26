@@ -15,6 +15,20 @@
 	 -This can often avoid the need for nested loops or O(n^2) operations with strings or arrays
 	*/
 
+	let myString = "Jupiterrrrr!"; //letter : frequency
+
+	let myObj = {};
+
+	for(let char of myString) {
+		if(!myObj[char]) {
+			myObj[char] = 1; //First time appearing in the object, the value is 1
+		} else {
+			myObj[char]++; //increment the value if it is already in their
+		}
+	}
+
+	console.log(myString); //Jupiter!
+	console.log(myObj); //{J: 1, u: 1, p: 1, i: 1, t: 1, e: 1, r: 5}
 
 </script>
 </body>
