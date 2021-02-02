@@ -32,14 +32,20 @@
             }
         }
     }
-    //Time Complexity:
-	//Space Complexity:
+    //Time Complexity: 0(n^2) Quadratic
+	//Space Complexity: O(1) Constant
 
+
+	//[-3,-2,-1,0,1,2,3]
+	//				  ^
+
+
+	//You have to have a sorted array to use multiple pointers
 
 	//Multiple Pointers Solution
     function sumZero(arr){
-        let left = 0;
-        let right = arr.length - 1;
+        let left = 0; //pointer
+        let right = arr.length - 1; //pointer
         while(left < right){
             let sum = arr[left] + arr[right];
             if(sum === 0){
@@ -51,8 +57,8 @@
             }
         }
     }
-	//Time Complexity:
-	//Space Complexity:
+	//Time Complexity: O(n) Linear
+	//Space Complexity: O(1) Constant b/c variables are holding integers
 
 </script>
 </body>
