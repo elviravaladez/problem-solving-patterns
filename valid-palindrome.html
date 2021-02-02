@@ -7,10 +7,46 @@
 <body>
 <script>
 	//Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
-    //Note: For the purpose of this problem, we define empty string as valid palindrome.
+	//Note: For the purpose of this problem, we define empty string as valid palindrome.
 	//isPalindrome("A man, a plan, a canal: Panama") //true
-	//isPalindrome("race a car") //true
+	//isPalindrome("race a car") //false
 
+	//We want to check to see if a phrase is the same forwards and backwards
+	//Are you saying that our inputs won't include non-alphanumeric or are we writing this within our code
+
+	//Start with test case:
+	//Okay interviewer, are you saying if we do:
+	//isPalindrome("hannah") it will return true
+
+	//remove non-alphanumeric characters
+	//start with a first condition
+	//if empty string -> return true
+
+	function palindrome(str) {
+		if(str.length === 0) {
+			return true;
+		}
+
+		let newStr = str.toLowerCase().match(/[a-z]/gi).join("");
+		let left = 0;
+		let right = newStr.length - 1;
+
+		while (left < right) {
+			if(newStr[left] !== newStr[right]) {
+				return false;
+			}
+			left++;
+			right--;
+		}
+		return true;
+	}
+
+	console.log(palindrome("A man, a plan, a canal: Panama")); //true
+	console.log(palindrome("race a car")); //false
+	console.log(palindrome("racecar")); //true
+
+	//Time Complexity: O(n) Linear
+	//Space Complexity: O(n) b/c we're storing a string and the space complexity of a string grows linearly as the string grows
 
 </script>
 </body>
