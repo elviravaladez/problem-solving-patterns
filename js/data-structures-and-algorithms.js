@@ -1,3 +1,5 @@
+//Frequency Counter
+
 // TODO: Implement a function called, areThereDuplicates which accepts a variable number of arguments, and checks whether there are any duplicates among the arguments passed in. You can solve this using the frequency pattern OR the multiple pointers pattern.
 
 //Example:
@@ -48,5 +50,38 @@ function areThereDuplicatesV2() {
         }
     }
     // 3. If by the end of our looping we haven't found a duplicate, then looks like there aren't any so return false.
+    return false;
+}
+
+
+// Multiple Pointers
+
+// TODO: Write a function called averagePair. Given a sorted array of integers and a target average, determine if there is a pair of values in the array where the average of the pair equals the target average. There may be more than one pair that matches the average target.
+
+// Sample Input
+averagePair([1,2,3], 2.5); // true
+averagePair([1,3,3,5,6,7,10,12,19], 8); // true
+averagePair([-1,0,3,4,5,6], 4.1); // false
+averagePair([], 4); // false
+
+function averagePair(arr, targetAvg) {
+    let start = 0;
+    let end = arr.length - 1;
+    let currentAvg;
+
+    if(arr.length === 0) {
+        return false;
+    }
+
+    while(start < end) {
+        currentAvg = (arr[start] + arr[end]) / 2;
+        if(currentAvg === targetAvg) {
+            return true;
+        } else if(currentAvg > targetAvg) {
+            end--;
+        } else {
+            start++;
+        }
+    }
     return false;
 }
